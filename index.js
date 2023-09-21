@@ -7,7 +7,6 @@ const app = express();
 const fs = require('fs');
 const { ObjectId } = require('mongodb');
 
-const imageBuffer = fs.readFileSync('./Prasad babu.jpeg');
 
 
 
