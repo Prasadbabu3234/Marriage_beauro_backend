@@ -103,7 +103,7 @@ app.post('/profile', async (req, res) => {
     }
 })
 
-app.get('/profile', async (req,res) => {
+app.get('/profiles', async (req,res) => {
     try {
         const collection1 = client.db('Mrriage-buearo').collection('Marriage_Details');
         const result = await collection1.find({}).toArray()
@@ -111,6 +111,10 @@ app.get('/profile', async (req,res) => {
     } catch (error) {
         
     }
+})
+
+app.get('/profile/:id',(req,res) => {
+    res.send("profile"+req.params.id)
 })
 
 app.listen(4000, async () => {
