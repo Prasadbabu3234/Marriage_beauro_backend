@@ -113,8 +113,14 @@ app.get('/profiles', async (req,res) => {
     }
 })
 
-app.get('/profile/:id',(req,res) => {
-    res.send("profile"+req.params.id)
+app.get('/profile/:id', async(req,res) => {
+    try {
+        const collection1 = client.db('Mrriage-buearo').collection('Marriage_Details');
+        const result = await collection1.find({"_id": new ObjectId(req.params.id)}).toArray()
+        res.send(result)
+    } catch (error) {
+        
+    }
 })
 
 app.listen(4000, async () => {
